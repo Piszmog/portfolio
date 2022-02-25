@@ -1,6 +1,6 @@
 import { PinnedItem } from '../../lib/models';
 import PinnedRepo from './PinnedRepo';
-import { Grid, Group } from '@mantine/core';
+import { Grid } from '@mantine/core';
 
 type PinnedReposProps = {
   repos: PinnedItem[];
@@ -13,7 +13,7 @@ const PinnedRepos = ({ repos }: PinnedReposProps) => {
       {
         repos.map((repo: PinnedItem) =>
           <Grid.Col span={4} key={repo.name}>
-            <PinnedRepo key={repo.name} {...repo} />
+            <PinnedRepo {...repo} />
           </Grid.Col>,
         )
       }
