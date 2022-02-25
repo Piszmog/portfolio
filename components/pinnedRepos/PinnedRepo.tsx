@@ -31,7 +31,6 @@ const PinnedRepo = (props: PinnedRepoProps) => {
         component='a'
         radius='xl'
         withBorder
-        style={{ minHeight: '150px', width: '115%' }}
       >
         <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
           <Text weight={500}>{props.name}</Text>
