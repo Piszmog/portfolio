@@ -7,7 +7,7 @@ import Toolbox from '../components/toolbox/Toolbox';
 import About from '../components/about/About';
 import HelloCode from '../components/helloCode/HelloCode';
 import { FaClock, FaCode } from 'react-icons/fa';
-import { Center } from '@mantine/core';
+import { Center, Divider } from '@mantine/core';
 
 export const getStaticProps: GetStaticProps = async () => {
   const user = await getUser('Piszmog');
@@ -22,8 +22,12 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
-      <HelloCode style={{height: '500px'}}/>
+      <HelloCode style={{ height: '500px' }} />
       <About />
+      <Divider />
+      <Center>
+        <h1>Top Repositories</h1>
+      </Center>
       <PinnedRepos repos={user.pinnedItems} />
       <LanguageProgress repos={user.repoLanguages} />
       <Center>
