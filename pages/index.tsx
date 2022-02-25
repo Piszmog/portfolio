@@ -24,7 +24,7 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
   return (
     <div>
       <HelloCode style={{ height: 300 }} />
-      <Divider mt='xl' mb='xl' />/
+      <Divider mt='xl' mb='xl' />
       <Center>
         <h1>About</h1>
       </Center>
