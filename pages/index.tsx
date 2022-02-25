@@ -24,16 +24,20 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
     <div>
       <HelloCode style={{ height: '500px' }} />
       <About />
-      <Divider />
+      <Divider mt={30} mb={30} />
       <Center>
         <h1>Top Repositories</h1>
       </Center>
       <PinnedRepos repos={user.pinnedItems} />
-      <Divider mt={30} />
+      <Divider mt={30} mb={30} />
       <Center>
-        <h1>Language Makeup</h1>
+        <h1>Languages Used</h1>
       </Center>
       <LanguageProgress repos={user.repoLanguages} />
+      <Divider mt={30} mb={30} />
+      <Center>
+        <h1>History</h1>
+      </Center>
       <Center>
         <History active={1} items={[
           {
@@ -52,7 +56,7 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
           },
         ]} />
       </Center>
-      <Divider mt={30} />
+      <Divider mt={30} mb={30} />
       <Center>
         <h1>Toolbox</h1>
       </Center>
