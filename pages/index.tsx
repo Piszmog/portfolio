@@ -23,7 +23,13 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
   return (
     <div>
       <HelloCode style={{ height: '500px' }} />
-      <About />
+      <Divider mt={30} mb={30} />
+      <Center>
+        <h1>About</h1>
+      </Center>
+      <Center>
+        <About />
+      </Center>
       <Divider mt={30} mb={30} />
       <Center>
         <h1>Top Repositories</h1>
