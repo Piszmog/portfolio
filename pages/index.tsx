@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
-      <HelloCode />
+      <HelloCode style={{height: '500px'}}/>
       <About />
       <PinnedRepos repos={user.pinnedItems} />
       <LanguageProgress repos={user.repoLanguages} />

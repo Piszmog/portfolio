@@ -1,16 +1,15 @@
 import { Prism } from '@mantine/prism';
 import { Center } from '@mantine/core';
 import { Language } from 'prism-react-renderer';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { bash, cpp, go, jsx, makefile, python } from './codeStrings';
 import Typist from 'react-typist';
 
-type SelectedLanguage = {
-  language: Language;
-  code: string;
+type HelloCodeProps = {
+  style?: React.CSSProperties;
 };
 
-const HelloCode = () => {
+const HelloCode = ({ style }: HelloCodeProps) => {
   const [lang, setLang] = useState(nextLang());
   const [count, setCount] = useState(1);
   useEffect(() => setCount(1), [count]);
@@ -21,7 +20,7 @@ const HelloCode = () => {
   };
 
   return (
-    <Center>
+    <Center style={style}>
       <TypistCode key={count} language={lang.language} codeString={lang.code} onTypingDone={onTypingDone} />
     </Center>
   );
@@ -65,6 +64,11 @@ const nextLang = (current?: Language): SelectedLanguage => {
     default:
       return { language: 'jsx', code: jsx };
   }
+};
+
+type SelectedLanguage = {
+  language: Language;
+  code: string;
 };
 
 export default HelloCode;
