@@ -7,9 +7,8 @@ type PinnedReposProps = {
 }
 
 const PinnedRepos = ({ repos }: PinnedReposProps) => {
-  // TODO cards are diff sizes
   return (
-    <Grid gutter='md'>
+    <Grid gutter='md' mr='xl' ml='xl'>
       {
         repos.map((repo: PinnedItem) =>
           <Grid.Col md={6} lg={4} key={repo.name}>

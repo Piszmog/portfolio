@@ -30,6 +30,8 @@ const LanguageProgress = ({ repos }: LanguageRingProps) => {
     <>
       <Progress
         mt='lg'
+        mr='xl'
+        ml='xl'
         size='xl'
         radius='xl'
         sections={
@@ -40,7 +42,13 @@ const LanguageProgress = ({ repos }: LanguageRingProps) => {
           }))
         }
       />
-      <Group mt={10} position='center' mb={10}>
+      <Group
+        mt={10}
+        position='center'
+        mb={10}
+        mr='xl'
+        ml='xl'
+      >
         {
           // @ts-ignore
           [...stats.values()].sort((a, b) => a.total < b.total)
