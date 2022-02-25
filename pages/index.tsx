@@ -29,6 +29,10 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
         <h1>Top Repositories</h1>
       </Center>
       <PinnedRepos repos={user.pinnedItems} />
+      <Divider mt={30} />
+      <Center>
+        <h1>Language Makeup</h1>
+      </Center>
       <LanguageProgress repos={user.repoLanguages} />
       <Center>
         <History active={1} items={[
@@ -47,6 +51,10 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
             end: 'May 2020',
           },
         ]} />
+      </Center>
+      <Divider mt={30} />
+      <Center>
+        <h1>Toolbox</h1>
       </Center>
       <Toolbox
         items={[
