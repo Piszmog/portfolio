@@ -8,6 +8,7 @@ import About from '../components/about/About';
 import HelloCode from '../components/helloCode/HelloCode';
 import { FaClock, FaCode } from 'react-icons/fa';
 import { Center, Divider } from '@mantine/core';
+import jerry from '../public/jerry.jpg';
 
 export const getStaticProps: GetStaticProps = async () => {
   const user = await getUser('Piszmog');
@@ -22,25 +23,25 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
-      <HelloCode style={{ height: '500px' }} />
-      <Divider mt={30} mb={30} />
+      <HelloCode style={{ height: 300 }} />
+      <Divider mt='xl' mb='xl' />/
       <Center>
         <h1>About</h1>
       </Center>
       <Center>
-        <About />
+        <About src='jerry.jpg' description='I am'/>
       </Center>
-      <Divider mt={30} mb={30} />
+      <Divider mt='xl' mb='xl' />
       <Center>
         <h1>Top Repositories</h1>
       </Center>
       <PinnedRepos repos={user.pinnedItems} />
-      <Divider mt={30} mb={30} />
+      <Divider mt='xl' mb='xl' />
       <Center>
         <h1>Languages Used</h1>
       </Center>
       <LanguageProgress repos={user.repoLanguages} />
-      <Divider mt={30} mb={30} />
+      <Divider mt='xl' mb='xl' />
       <Center>
         <h1>History</h1>
       </Center>
@@ -62,7 +63,7 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
           },
         ]} />
       </Center>
-      <Divider mt={30} mb={30} />
+      <Divider mt='xl' mb='xl' />
       <Center>
         <h1>Toolbox</h1>
       </Center>
