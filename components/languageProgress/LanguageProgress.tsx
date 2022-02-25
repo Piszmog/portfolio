@@ -1,5 +1,5 @@
 import { RepoLanguage } from '../../lib/models';
-import { Progress } from '@mantine/core';
+import { Badge, Group, Progress } from '@mantine/core';
 
 type LanguageRingProps = {
   repos: RepoLanguage[];
@@ -27,22 +27,43 @@ const LanguageProgress = ({ repos }: LanguageRingProps) => {
     });
   });
   return (
-    <Progress
-      mt='lg'
-      size='xl'
-      radius='xl'
-      styles={{
-        label: { color: 'black' },
-      }}
-      sections={
-        // @ts-ignore
-        [...stats.values()].sort((a, b) => a.total < b.total).map(stat => ({
-          label: stat.language,
-          value: stat.total / total * 100,
-          color: stat.color,
-        }))
-      }
-    />
+    <>
+      <Progress
+        mt='lg'
+        size='xl'
+        radius='xl'
+        sections={
+          // @ts-ignore
+          [...stats.values()].sort((a, b) => a.total < b.total).map(stat => ({
+            value: stat.total / total * 100,
+            color: stat.color,
+          }))
+        }
+      />
+      <Group mt={10} position='center' mb={10}>
+        {
+          // @ts-ignore
+          [...stats.values()].sort((a, b) => a.total < b.total)
+            .map(stat =>
+              <Badge
+                key={stat.language}
+                variant='dot'
+                color={stat.color}
+                styles={{
+                  dot: {
+                    borderColor: 'transparent',
+                    '::before': {
+                      backgroundColor: stat.color,
+                    },
+                  },
+                }}
+              >
+                {stat.language}
+              </Badge>,
+            )
+        }
+      </Group>
+    </>
   );
 };
 
