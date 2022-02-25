@@ -43,9 +43,9 @@ const LanguageProgress = ({ repos }: LanguageRingProps) => {
         }
       />
       <Group
-        mt={10}
+        mt='sm'
         position='center'
-        mb={10}
+        mb='sm'
         mr='xl'
         ml='xl'
       >

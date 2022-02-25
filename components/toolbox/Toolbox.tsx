@@ -12,7 +12,7 @@ type ToolboxProps = {
 
 const Toolbox = ({ items }: ToolboxProps) => {
   return (
-    <Grid gutter='md' mt={10}>
+    <Grid gutter='md' mt='sm'>
       {
         items.map((item, index) =>
           <Grid.Col md={6} lg={4} key={index}>

@@ -29,7 +29,7 @@ const Home: NextPage = ({ user }: InferGetStaticPropsType<typeof getStaticProps>
         <h1>About</h1>
       </Center>
       <Center>
-        <About src='jerry.jpg' description='I am'/>
+        <About src={jerry} description='I am'/>
       </Center>
       <Divider mt='xl' mb='xl' />
       <Center>

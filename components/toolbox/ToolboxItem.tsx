@@ -13,7 +13,7 @@ const ToolboxItem = ({ icon, title, items }: ToolboxItemProps) => {
       <Center>
         <Text weight={600}>{icon} {title}</Text>
       </Center>
-      <Center mt={10}>
+      <Center mt='sm'>
         <Group position='center'>
           {
             items.map((item, index) =>
