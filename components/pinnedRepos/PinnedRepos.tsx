@@ -12,7 +12,7 @@ const PinnedRepos = ({ repos }: PinnedReposProps) => {
     <Grid gutter='md'>
       {
         repos.map((repo: PinnedItem) =>
-          <Grid.Col span={4} key={repo.name}>
+          <Grid.Col md={6} lg={4} key={repo.name}>
             <PinnedRepo {...repo} />
           </Grid.Col>,
         )

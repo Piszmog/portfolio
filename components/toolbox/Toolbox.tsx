@@ -15,7 +15,7 @@ const Toolbox = ({ items }: ToolboxProps) => {
     <Grid gutter='md' mt={10}>
       {
         items.map((item, index) =>
-          <Grid.Col span={4} key={index}>
+          <Grid.Col md={6} lg={4} key={index}>
             <ToolboxItem {...item} />
           </Grid.Col>,
         )
