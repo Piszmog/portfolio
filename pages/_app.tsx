@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           withNormalizeCSS
           theme={{ colorScheme }}
         >
-          <Main header={<AppHeader title='Piszmog' />}>
+          <Main header={<AppHeader title='Randell Callahan' />}>
             <Component {...pageProps} />
           </Main>
         </MantineProvider>
