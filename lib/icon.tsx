@@ -22,6 +22,7 @@ import {
   FaSun,
 } from 'react-icons/fa';
 import { AiOutlineFork } from 'react-icons/ai';
+import { SiFirebase, SiNextdotjs, SiVercel } from 'react-icons/si';
 
 const getIcon = (value: String): React.ReactNode => {
   switch (value) {
@@ -37,6 +38,8 @@ const getIcon = (value: String): React.ReactNode => {
       return <FaDog />;
     case 'edu':
       return <FaCertificate />;
+    case 'firebase':
+      return <SiFirebase />;
     case 'fork':
       return <AiOutlineFork />;
     case 'github':
@@ -47,6 +50,8 @@ const getIcon = (value: String): React.ReactNode => {
       return <FaMoon />;
     case 'move':
       return <FaExchangeAlt />;
+    case 'nextjs':
+      return <SiNextdotjs />;
     case 'persist':
       return <FaDatabase />;
     case 'plan':
@@ -65,6 +70,8 @@ const getIcon = (value: String): React.ReactNode => {
       return <FaRegStar />;
     case 'sun':
       return <FaSun />;
+    case 'vercel':
+      return <SiVercel />;
     case 'verify':
       return <FaCheck />;
   }
