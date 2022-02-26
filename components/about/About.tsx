@@ -25,7 +25,7 @@ const About = ({ description, src, title, subtitles }: AboutProps) => {
           alt='Profile Image'
         />
       </Center>
-      <Spoiler maxHeight={25} showLabel='Show more' hideLabel='Hide'>
+      <Spoiler maxHeight={100} showLabel='Show more' hideLabel='Hide'>
         <div>
           <Text mb='mb'>
             I am a...
