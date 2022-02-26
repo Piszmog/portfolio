@@ -21,21 +21,21 @@ const HelloCode = ({ style }: HelloCodeProps) => {
 
   return (
     <Center style={style}>
-      <TypistCode key={count} language={lang.language} codeString={lang.code} onTypingDone={onTypingDone} />
+      <TypistCode count={count} language={lang.language} codeString={lang.code} onTypingDone={onTypingDone} />
     </Center>
   );
 };
 
 type TypistCodeProps = {
-  key: number;
+  count: number;
   language: Language;
   codeString: string;
   onTypingDone?: () => void;
 };
 
-const TypistCode = ({ key, language, codeString, onTypingDone }: TypistCodeProps) => {
+const TypistCode = ({ count, language, codeString, onTypingDone }: TypistCodeProps) => {
   return (
-    <Typist key={key} avgTypingDelay={15} cursor={{ show: false }} onTypingDone={onTypingDone}>
+    <Typist key={count} avgTypingDelay={15} cursor={{ show: false }} onTypingDone={onTypingDone}>
       <Prism
         language={language}
         noCopy
