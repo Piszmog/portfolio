@@ -4,9 +4,10 @@ import getIcon from '../../lib/icon';
 
 type AppHeaderProps = {
   title: string;
+  username: string;
 };
 
-const AppHeader = (props: AppHeaderProps) => {
+const AppHeader = ({ title, username }: AppHeaderProps) => {
   return (
     <Header height={60} padding='xs'>
       <Group
@@ -23,11 +24,12 @@ const AppHeader = (props: AppHeaderProps) => {
           <ThemeIcon style={{ marginRight: 10 }} radius='lg'>
             {getIcon('code')}
           </ThemeIcon>
-          {props.title}
+          {title}
         </Title>
         <Group>
           <ColorModeButton />
-          <ActionIcon variant='outline' radius='lg' component='a' href='https://github.com/Piszmog' target='_blank'>
+          <ActionIcon variant='outline' radius='lg' component='a' href={`https://github.com/${username}`}
+                      target='_blank'>
             {getIcon('github')}
           </ActionIcon>
         </Group>
