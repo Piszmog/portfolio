@@ -6,13 +6,13 @@ import History from '../components/history/History';
 import Toolbox from '../components/toolbox/Toolbox';
 import About from '../components/about/About';
 import HelloCode from '../components/helloCode/HelloCode';
-import { FaClock } from 'react-icons/fa';
 import { Center, Divider } from '@mantine/core';
 import jerry from '../public/jerry.jpg';
 import { getUserData } from '../lib/db';
 import getIcon from '../lib/icon';
 import AppHeader from '../components/layout/AppHeader';
 import Main from '../components/layout/Main';
+import { compare } from '../lib/date';
 
 export const getStaticProps: GetStaticProps = async () => {
   const user = await getUser(process.env.GITHUB_USERNAME!);
@@ -27,7 +27,23 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const history = [...data.education, ...data.work];
+  const workData: any[] = [];
+
+  data.work.forEach((work: any) => {
+    work.roles.forEach((role: any) => {
+      workData.push({
+        company: work.company,
+        changeReason: role.changeReason,
+        description: role.description,
+        details: role.details,
+        end: role.end,
+        start: role.start,
+        title: role.title,
+      });
+    });
+  });
+
+  const history = [...data.education, ...workData].sort((a, b) => -compare(a.end, b.end));
 
   return (
     <Main header={<AppHeader title={data.name} username={data.githubUsername} />}>
@@ -64,23 +80,25 @@ const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStatic
       <Center>
         <History
           active={1}
-          // items={}
-          items={[
-            {
-              icon: <FaClock />,
-              title: 'Joined GitHub',
-              description: 'Joined GitHub on May 1, 2020',
-              start: 'Dec 2018',
-              end: 'May 2020',
-            },
-            {
-              icon: <FaClock />,
-              title: 'Joined GitHub',
-              description: 'Joined GitHub on May 1, 2020',
-              start: 'Dec 2018',
-              end: 'May 2020',
-            },
-          ]}
+          items={history.map((item: any) => {
+            let description = '';
+            if (item.major) {
+              description = `Major: ${item.major}`;
+              if (item.minor) {
+                description += `\nMinor: ${item.minor}`;
+              }
+            } else {
+              description = item.description;
+            }
+
+            return {
+              icon: getIcon(item.changeReason ?? 'edu'),
+              title: item.title ?? `${item.name}, ${item.location}`,
+              description: description,
+              start: item.start,
+              end: item.end,
+            };
+          })}
         />
       </Center>
       <Divider mt='xl' mb='xl' />
