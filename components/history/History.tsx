@@ -15,7 +15,7 @@ type HistoryProps = {
 
 const History = ({ active, items }: HistoryProps) => {
   return (
-    <Timeline active={active} bulletSize={24} lineWidth={2} mt='sm'>
+    <Timeline active={active} bulletSize={24} lineWidth={2} mt='sm' style={{maxWidth: 350}}>
       {
         items.map((item, index) => {
           return (
