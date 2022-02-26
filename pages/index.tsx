@@ -90,17 +90,13 @@ const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStatic
             } else {
               description = item.description;
             }
-            let title;
-            if (item.title) {
-              title = `${item.title}, ${item.company}`;
-            } else {
-              title = `${item.name}, ${item.location}`;
-            }
 
             return {
               icon: getIcon(item.changeReason ?? 'edu'),
-              title,
+              title: item.title ?? item.name,
+              subtitle: item.company ?? item.location,
               description,
+              details: item.details,
               start: item.start,
               end: item.end,
             };
