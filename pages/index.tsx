@@ -13,6 +13,8 @@ import getIcon from '../lib/icon';
 import AppHeader from '../components/layout/AppHeader';
 import Main from '../components/layout/Main';
 import { compare } from '../lib/date';
+import Footer from '../components/layout/Footer';
+import React from 'react';
 
 export const getStaticProps: GetStaticProps = async () => {
   const user = await getUser(process.env.GITHUB_USERNAME!);
@@ -46,75 +48,78 @@ const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStatic
   const history = [...data.education, ...workData].sort((a, b) => -compare(a.end, b.end));
 
   return (
-    <Main header={<AppHeader title={data.name} username={data.githubUsername} />}>
-      <HelloCode style={{ height: 300 }} />
-      <Divider mt='xl' mb='xl' />
-      <Center>
-        <h1>About</h1>
-      </Center>
-      <Center>
-        <About
-          src={jerry}
-          title={{ icon: getIcon(data.about.title.icon), value: data.about.title.value }}
-          subtitles={data.about.subtitles.map((subtitle: any) => ({
-            icon: getIcon(subtitle.icon),
-            value: subtitle.value,
-          }))}
-          description={data.about.description}
-        />
-      </Center>
-      <Divider mt='xl' mb='xl' />
-      <Center>
-        <h1>Top Repositories</h1>
-      </Center>
-      <PinnedRepos repos={user.pinnedItems} />
-      <Divider mt='xl' mb='xl' />
-      <Center>
-        <h1>Languages Used</h1>
-      </Center>
-      <LanguageProgress repos={user.repoLanguages} />
-      <Divider mt='xl' mb='xl' />
-      <Center>
-        <h1>History</h1>
-      </Center>
-      <Center>
-        <History
-          active={0}
-          items={history.map((item: any) => {
-            let description = '';
-            if (item.major) {
-              description = `Major: ${item.major}`;
-              if (item.minor) {
-                description += `\nMinor: ${item.minor}`;
+    <>
+      <Main header={<AppHeader title={data.name} username={data.githubUsername} />}>
+        <HelloCode style={{ height: 300 }} />
+        <Divider mt='xl' mb='xl' />
+        <Center>
+          <h1>About</h1>
+        </Center>
+        <Center>
+          <About
+            src={jerry}
+            title={{ icon: getIcon(data.about.title.icon), value: data.about.title.value }}
+            subtitles={data.about.subtitles.map((subtitle: any) => ({
+              icon: getIcon(subtitle.icon),
+              value: subtitle.value,
+            }))}
+            description={data.about.description}
+          />
+        </Center>
+        <Divider mt='xl' mb='xl' />
+        <Center>
+          <h1>Top Repositories</h1>
+        </Center>
+        <PinnedRepos repos={user.pinnedItems} />
+        <Divider mt='xl' mb='xl' />
+        <Center>
+          <h1>Languages Used</h1>
+        </Center>
+        <LanguageProgress repos={user.repoLanguages} />
+        <Divider mt='xl' mb='xl' />
+        <Center>
+          <h1>History</h1>
+        </Center>
+        <Center>
+          <History
+            active={0}
+            items={history.map((item: any) => {
+              let description = '';
+              if (item.major) {
+                description = `Major: ${item.major}`;
+                if (item.minor) {
+                  description += `\nMinor: ${item.minor}`;
+                }
+              } else {
+                description = item.description;
               }
-            } else {
-              description = item.description;
-            }
 
-            return {
-              icon: getIcon(item.changeReason ?? 'edu'),
-              title: item.title ?? item.name,
-              subtitle: item.company ?? item.location,
-              description,
-              details: item.details,
-              start: item.start,
-              end: item.end,
-            };
-          })}
+              return {
+                icon: getIcon(item.changeReason ?? 'edu'),
+                title: item.title ?? item.name,
+                subtitle: item.company ?? item.location,
+                description,
+                details: item.details,
+                start: item.start,
+                end: item.end,
+              };
+            })}
+          />
+        </Center>
+        <Divider mt='xl' mb='xl' />
+        <Center>
+          <h1>Toolbox</h1>
+        </Center>
+        <Toolbox
+          items={data.toolbox.sort((a: any, b: any) => a.type >= b.type).map((tool: any) => ({
+            icon: getIcon(tool.type),
+            title: tool.type.toUpperCase(),
+            items: tool.values,
+          }))}
         />
-      </Center>
-      <Divider mt='xl' mb='xl' />
-      <Center>
-        <h1>Toolbox</h1>
-      </Center>
-      <Toolbox
-        items={data.toolbox.sort((a: any, b: any) => a.type >= b.type).map((tool: any) => ({
-          icon: getIcon(tool.type),
-          title: tool.type.toUpperCase(),
-          items: tool.values,
-        }))}
-      />
-    </Main>
+      </Main>
+      <Footer />
+    </>
   );
 };
 
