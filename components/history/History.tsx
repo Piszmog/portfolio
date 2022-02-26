@@ -25,7 +25,15 @@ const History = ({ active, items }: HistoryProps) => {
               title={item.title}
               lineVariant={item.lineVariant}
             >
-              <Text color='dimmed' size='sm'>{item.description}</Text>
+              {
+                item.description.split('\n').map((line, i) => {
+                  return (
+                    <Text key={i} color='dimmed' size='sm'>
+                      {line}
+                    </Text>
+                  );
+                })
+              }
               <Text size='xs' style={{ marginTop: 4 }}>{item.start} - {item.end}</Text>
             </Timeline.Item>
           );
