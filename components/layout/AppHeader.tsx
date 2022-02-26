@@ -9,7 +9,7 @@ type AppHeaderProps = {
 
 const AppHeader = ({ title, username }: AppHeaderProps) => {
   return (
-    <Header height={60} padding='xs'>
+    <Header height={60} padding='xs' fixed>
       <Group
         style={{
           height: '100%',
