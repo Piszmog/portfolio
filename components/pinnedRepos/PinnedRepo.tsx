@@ -1,7 +1,6 @@
 import { Badge, Group, Paper, Text, useMantineTheme } from '@mantine/core';
 import { Language } from '../../lib/models';
-import { FaRegStar } from 'react-icons/fa';
-import { AiOutlineFork } from 'react-icons/ai';
+import getIcon from '../../lib/icon';
 
 type PinnedRepoProps = {
   name: string;
@@ -36,10 +35,10 @@ const PinnedRepo = (props: PinnedRepoProps) => {
           <Text weight={500}>{props.name}</Text>
           <Group position='right'>
             <div>
-              <FaRegStar /> {props.stars}
+              {getIcon('star')} {props.stars}
             </div>
             <div>
-              <AiOutlineFork /> {props.forks}
+              {getIcon('fork')} {props.forks}
             </div>
           </Group>
         </Group>

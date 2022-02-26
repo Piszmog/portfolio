@@ -1,7 +1,6 @@
 import { ActionIcon, Group, Header, ThemeIcon, Title } from '@mantine/core';
 import ColorModeButton from './ColorModeButton';
-import { FaGithub } from 'react-icons/fa';
-import { BsCodeSlash } from 'react-icons/bs';
+import getIcon from '../../lib/icon';
 
 type AppHeaderProps = {
   title: string;
@@ -22,14 +21,14 @@ const AppHeader = (props: AppHeaderProps) => {
       >
         <Title order={3}>
           <ThemeIcon style={{ marginRight: 10 }} radius='lg'>
-            <BsCodeSlash />
+            {getIcon('code')}
           </ThemeIcon>
           {props.title}
         </Title>
         <Group>
           <ColorModeButton />
           <ActionIcon variant='outline' radius='lg' component='a' href='https://github.com/Piszmog' target='_blank'>
-            <FaGithub />
+            {getIcon('github')}
           </ActionIcon>
         </Group>
       </Group>

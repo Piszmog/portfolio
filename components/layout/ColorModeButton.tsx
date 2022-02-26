@@ -1,5 +1,5 @@
 import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import getIcon from '../../lib/icon';
 
 const ColorModeButton = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -14,9 +14,9 @@ const ColorModeButton = () => {
       radius='lg'
     >
       {dark ? (
-        <FaSun style={{ width: 18, height: 18 }} />
+        getIcon('sun')
       ) : (
-        <FaMoon style={{ width: 18, height: 18 }} />
+        getIcon('moon')
       )}
     </ActionIcon>
   );
