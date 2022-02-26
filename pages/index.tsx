@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
       user,
       data,
     },
-    revalidate: 7200,
+    revalidate: 3600,
   };
 };
 
@@ -90,11 +90,17 @@ const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStatic
             } else {
               description = item.description;
             }
+            let title;
+            if (item.title) {
+              title = `${item.title}, ${item.company}`;
+            } else {
+              title = `${item.name}, ${item.location}`;
+            }
 
             return {
               icon: getIcon(item.changeReason ?? 'edu'),
-              title: item.title ?? `${item.name}, ${item.location}`,
-              description: description,
+              title,
+              description,
               start: item.start,
               end: item.end,
             };
