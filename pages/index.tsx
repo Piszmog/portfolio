@@ -79,7 +79,7 @@ const Home: NextPage = ({ user, data }: InferGetStaticPropsType<typeof getStatic
       </Center>
       <Center>
         <History
-          active={1}
+          active={0}
           items={history.map((item: any) => {
             let description = '';
             if (item.major) {
