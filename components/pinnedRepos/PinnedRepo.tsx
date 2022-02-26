@@ -31,16 +31,14 @@ const PinnedRepo = (props: PinnedRepoProps) => {
         radius='xl'
         withBorder
       >
-        <Group position='apart' style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-          <Text weight={500}>{props.name}</Text>
-          <Group position='right'>
-            <div>
-              {getIcon('star')} {props.stars}
-            </div>
-            <div>
-              {getIcon('fork')} {props.forks}
-            </div>
-          </Group>
+        <Text weight={500}>{props.name}</Text>
+        <Group position='left' mb='xs'>
+          <div>
+            {getIcon('star')} {props.stars}
+          </div>
+          <div>
+            {getIcon('fork')} {props.forks}
+          </div>
         </Group>
 
         <Text size='sm' style={{ color: secondaryColor, lineHeight: 1.5 }}>
