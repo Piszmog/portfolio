@@ -3,6 +3,7 @@ import {
   FaArrowRight,
   FaArrowUp,
   FaBaby,
+  FaBoxOpen,
   FaCertificate,
   FaCheck,
   FaCode,
@@ -54,6 +55,8 @@ const getIcon = (value: String): React.ReactNode => {
       return <FaGlobe />;
     case 'promotion':
       return <FaArrowUp />;
+    case 'open':
+      return <FaBoxOpen />;
     case 'run':
       return <FaPlay />;
     case 'share':
