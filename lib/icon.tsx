@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  FaArrowRight,
-  FaArrowUp,
+  FaAngleDoubleRight,
+  FaAngleDoubleUp,
   FaBaby,
   FaBoxOpen,
   FaCertificate,
@@ -30,7 +30,7 @@ const getIcon = (value: String): React.ReactNode => {
     case 'build':
       return <FaHammer />;
     case 'change':
-      return <FaArrowRight />;
+      return <FaAngleDoubleRight />;
     case 'code':
       return <FaCode />;
     case 'dog':
@@ -54,7 +54,7 @@ const getIcon = (value: String): React.ReactNode => {
     case 'presentation':
       return <FaGlobe />;
     case 'promotion':
-      return <FaArrowUp />;
+      return <FaAngleDoubleUp />;
     case 'open':
       return <FaBoxOpen />;
     case 'run':
